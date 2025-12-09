@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Графічний редактор — Растрові алгоритми та фрактали</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="toolbar">
+        <button onclick="setMode('line')">Лінія (Bresenham)</button>
+        <button onclick="setMode('circle')">Коло (Midpoint)</button>
+        <button onclick="setMode('ellipse')">Еліпс (Midpoint)</button>
+        <button onclick="drawMandelbrot()">Mandelbrot</button>
+        <label>Колір:
+            <input type="color" id="colorPicker" value="#000000">
+        </label>
+        <label>Товщина:
+            <input type="number" id="lineWidth" value="1" min="1" max="20">
+        </label>
+        <label>Заповнення:
+            <select id="fillStyle">
+                <option value="none">Немає</option>
+                <option value="solid">Колір</option>
+            </select>
+        </label>
+        <button onclick="setMode('select')">Вибрати фігуру</button>
+        <button onclick="recolorSelected()">Змінити колір</button>
+
+        <button onclick="setAffine('move')">Move</button>
+        <button onclick="setAffine('scale')">Scale</button>
+        <button onclick="setAffine('rotate')">Rotate</button>
+
+
+        <label>Освітленість:
+    <input type="range" id="lightnessControl" min="-100" max="100" value="0">
+</label>
+
+<label>Яскравість:
+    <input type="range" id="brightnessControl" min="-100" max="100" value="0">
+</label>
+
+<button onclick="resetLightBright()">Скинути L/B</button>
+<button onclick="deleteSelected()">Видалити фігуру</button>
+    </div>
+
+
+    <canvas id="canvas" width="1000" height="700"></canvas>
+    <script href="script.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
